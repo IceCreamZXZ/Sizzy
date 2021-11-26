@@ -1,0 +1,25 @@
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+	<h:head>
+		<title>Registrieren</title>
+		<link rel="stylesheet" type="text/css" href="registration-style.css"/>
+	</h:head>
+	<h:body>
+		<div class="registrationbox">
+			<h1>Registrierung</h1>
+			<h:form>
+				<p>Benutzername</p>
+				<h:inputText class="regUsername" id="username" value="#{registrationBean.username}" lable="Username" required="true" requiredMessage="Dieser Benutzername ist ungültig" a:placeholder="Bitte den Benutzernamen festlegen"/>
+				<h:message for="username" type="error"/>
+				<p>Passwort</p>
+				<h:inputSecret class="regPassword" id="password" value="#{registrationBean.password}" lable="Password" required="true" requiredMessage="Dieses Passwort ist ungültig" a:placeholder="Bitte ein Passwort festlegen"/>
+				<h:message for="password" type="error"/>
+				<h:commandButton class="regButton" value="Registrieren" action="#{registrationBean.register}"/>
+				<br/><br/>
+				<a href="login.xhtml">Sie haben schon einen Account?</a>
+			</h:form>
+		</div>
+	</h:body>
+</html>

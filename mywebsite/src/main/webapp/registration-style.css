@@ -1,0 +1,88 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-image: url(login-background.jpg);
+	background-size: cover;
+	font-family: sans-serif;
+}
+
+.registrationbox {
+	width: 320px;
+	height: 420px;
+	background: rgba(0, 0, 0, 0.80);
+	color: #fff;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	box-sizing: border-box;
+	padding: 70px 30px;
+	opacity: 100%;
+}
+
+h1 {
+	margin: -30px 0 30px 0;
+	padding: 0 0 20px;
+	text-align: center;
+	font-size: 30px;
+	opacity: 100%;
+}
+
+.registrationbox p {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	opacity: 100%;
+}
+
+.registrationbox input {
+	width: 100%;
+	margin-bottom: 20px;
+	opacity: 100%;
+}
+
+.regUsername, .regPassword {
+	border: none;
+	border-bottom: 1px solid #fb2525;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+	opacity: 100%;
+}
+
+.regButton {
+	border: none;
+	outline: none;
+	height: 40px;
+	background: #fb2525;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 20px;
+	opacity: 100%;
+}
+
+.regButton:hover {
+	cursor: pointer;
+	background: ffc107;
+	color: #000;
+	opacity: 100%;
+}
+
+.registrationbox a {
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 20px;
+	color: darkgrey;
+	opacity: 100%;
+}
+
+.registrationbox a:hover {
+	color: #ffc107;
+	opacity: 100%;
+}
+
+.error {
+	color: red;
+}

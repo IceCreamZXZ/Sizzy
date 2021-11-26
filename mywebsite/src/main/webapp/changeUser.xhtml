@@ -1,0 +1,25 @@
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<h:head>
+		<title>Nutzer Profil verändern</title>
+		<style>
+			.error{color:red}
+		</style>
+	</h:head>
+	<h:body>
+		<h:form>
+			userID: <h:inputText id="id" value="#{changeUserFromDB.userID}" lable="userID" required="true" requiredMessage="Diese ID ist ungültig"/>
+			<h:message for="id" styleClass="error"/>
+			<br/><br/>
+			Neuer Vorname: <h:inputText id="newFName" value="#{changeUserFromDB.newFName}" lable="Neuer_Vorname" required="true" requiredMessage="Dieser Vorname ist ungültig"/>
+			<h:message for="newFName" styleClass="error"/>
+			<br/><br/>
+			Neuer Nachname: <h:inputText id="newLName" value="#{changeUserFromDB.newLName}" lable="Neuer_Nachname" required="true" requiredMessage="Dieser Nachname ist ungültig"/>
+			<h:message for="newLName" styleClass="error"/>
+			<br/><br/>
+			<h:commandButton value="Bestätigen" action="#{changeUserFromDB.changeUser}"/>
+		</h:form>
+	</h:body>
+</html>
