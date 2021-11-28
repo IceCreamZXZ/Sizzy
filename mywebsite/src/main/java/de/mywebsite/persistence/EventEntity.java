@@ -1,6 +1,7 @@
 package de.mywebsite.persistence;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,6 +37,9 @@ public class EventEntity implements Serializable{
 	
 	@Column(name = "registeretplayers", nullable = false)
 	private int registeretPlayers;
+	
+	@Column(name = "date", nullable = false)
+	private Date date;
 
 	public int getEventId() {
 		return eventId;
@@ -91,6 +95,14 @@ public class EventEntity implements Serializable{
 
 	public void setRegisteretPlayers(int registeretPlayers) {
 		this.registeretPlayers = registeretPlayers;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
 }

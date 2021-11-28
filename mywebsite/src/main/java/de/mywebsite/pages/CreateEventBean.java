@@ -1,5 +1,7 @@
 package de.mywebsite.pages;
 
+import java.util.Date;
+
 import javax.faces.bean.ManagedBean;
 
 import de.mywebsite.service.EventService;
@@ -9,6 +11,7 @@ public class CreateEventBean {
 	private String eventName;
 	private String host;
 	private String location;
+	private Date date;
 	private String game;
 	private int maxPlayers;
 	private int registeretPlayers;
@@ -18,7 +21,7 @@ public class CreateEventBean {
 	}
 	
 	public String createEvent() {
-		EventService.createEvent(eventName, host, location, game, maxPlayers, registeretPlayers);
+		EventService.createEvent(eventName, host, location, game, maxPlayers, registeretPlayers, date);
 		
 		return "welcome.xhtml";
 	}
@@ -69,6 +72,14 @@ public class CreateEventBean {
 
 	public void setRegisteretPlayers(int registeretPlayers) {
 		this.registeretPlayers = registeretPlayers;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
 }

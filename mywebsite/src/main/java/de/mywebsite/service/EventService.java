@@ -1,6 +1,7 @@
 package de.mywebsite.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -15,7 +16,7 @@ public class EventService {
 	private static EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence
 			.createEntityManagerFactory("mywebsite");
 	
-	public static void createEvent(String eventName, String host, String location, String game, int maxPlayer, int registeretPlayers) {
+	public static void createEvent(String eventName, String host, String location, String game, int maxPlayer, int registeretPlayers, Date date) {
 		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
 		EntityTransaction et = null;
 		EventEntity event = new EventEntity();
@@ -28,6 +29,7 @@ public class EventService {
 			event.setGame(game);
 			event.setMaxPlayer(maxPlayer);
 			event.setRegisteretPlayers(registeretPlayers);
+			event.setDate(null);
 			em.persist(event);
 			et.commit();
 		}
