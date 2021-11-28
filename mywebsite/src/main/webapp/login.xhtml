@@ -12,9 +12,9 @@
 			<h1>Login</h1>
 			<h:form>
 				<p>Benutzername</p>
-				<h:inputText class="logUsername" id="username" value="#{loginBean.username}" lable="username" required="true" requiredMessage="Ungültiger username!" a:placeholder="Bitte den Benutzernamen eingeben"/>
+				<h:inputText class="logUsername" id="username" value="#{loginBean.userModel.username}" lable="username" required="true" requiredMessage="Ungültiger username!" a:placeholder="Bitte den Benutzernamen eingeben"/>
 				<p>Passwort</p>
-				<h:inputSecret class="logPassword" id="password" value="#{loginBean.password}" lable="password" required="true" requiredMessage="Ungültiges Passwort!" a:placeholder="Bitte ihr Passwort eingeben"/>
+				<h:inputSecret class="logPassword" id="password" value="#{loginBean.userModel.password}" lable="password" required="true" requiredMessage="Ungültiges Passwort!" a:placeholder="Bitte ihr Passwort eingeben"/>
 				<h:commandButton class="logButton" value="Login" action="#{loginBean.isPwCorrect}"/>
 				<br/><br/>
 				<a href="registration.xhtml">Du hast noch keinen Account?</a>
