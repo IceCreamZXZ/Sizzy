@@ -31,8 +31,9 @@ public class CreateEventBean {
 	
 	public String createEvent() {
 		
-		EventService.createEvent(getEventModel().getEventName(), getUser().getUsername(), getEventModel().getLocation(), getEventModel().getGame(), getEventModel().getMaxPlayer(), getEventModel().getRegisteredPlayers(), getEventModel().getDate());
+		int eventID = EventService.createEvent(getEventModel().getEventName(), getUser().getUsername(), getEventModel().getLocation(), getEventModel().getGame(), getEventModel().getMaxPlayer(), 1, getEventModel().getDate());
 		
+		EventService.eventSignUp(eventID, getUser().getUsername());
 		return "welcome.xhtml";
 	}
 

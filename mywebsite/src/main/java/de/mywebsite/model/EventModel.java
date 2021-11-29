@@ -15,6 +15,7 @@ public class EventModel {
 	private String game;
 	private int maxPlayer;
 	private int registeredPlayers;
+	private int eventID;
 	
 	public String getEventName() {
 		return eventName;
@@ -57,6 +58,12 @@ public class EventModel {
 	}
 	public void setRegisteredPlayers(int registeredPlayers) {
 		this.registeredPlayers = registeredPlayers;
+	}
+	public int getEventID() {
+		return eventID;
+	}
+	public void setEventID(int eventID) {
+		this.eventID = eventID;
 	}
 	
 }

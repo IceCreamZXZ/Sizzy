@@ -18,7 +18,7 @@ public class EventService {
 	private static EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence
 			.createEntityManagerFactory("mywebsite");
 	
-	public static void createEvent(String eventName, String host, String location, String game, int maxPlayer, int registeretPlayers, Date date) {
+	public static int createEvent(String eventName, String host, String location, String game, int maxPlayer, int registeretPlayers, Date date) {
 		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
 		EntityTransaction et = null;
 		EventEntity event = new EventEntity();
@@ -45,11 +45,13 @@ public class EventService {
 			em.close();
 		}
 		
+		return event.getEventId();
+		
 	}
 	
-	public static List<EventEntity> listAllEvents(int eventID) {
+	public static List<EventEntity> listAllEvents() {
 		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
-		String query = "SELECT u FROM EventEntity u WHERE u.eventID = :eventID";
+		String query = "SELECT u FROM EventEntity u";
 		
 		TypedQuery<EventEntity> tq = em.createQuery(query, EventEntity.class);
 		List<EventEntity> result = new ArrayList<EventEntity>();
@@ -126,4 +128,28 @@ public class EventService {
 		
 	}
 	
+	public static void eventSignUp(int eventID, String username) {
+		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+		EntityTransaction et = null;
+		EventsPlayersEntity eventUser = new EventsPlayersEntity();
+		try {
+			et = em.getTransaction();
+			et.begin();
+			eventUser.setEventID(eventID);
+			eventUser.setPlayer(username);
+			em.persist(eventUser);
+			et.commit();
+		}
+		catch (Exception e) {
+			if (et != null) {
+				et.rollback();
+			}
+			e.printStackTrace();
+		}
+		finally {
+			em.close();
+		}
+		
+	}
+		
 }
