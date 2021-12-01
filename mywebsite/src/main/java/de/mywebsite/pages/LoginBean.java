@@ -19,7 +19,16 @@ public class LoginBean {
 	}
 	
 	public String isPwCorrect() {
-		boolean pw = LoginService.isPasswordRight(getUserModel().getUsername(), getUserModel().getPassword());
+		
+		boolean pw = false;
+		
+		try {
+			
+		pw = LoginService.isPasswordRight(getUserModel().getUsername(), getUserModel().getPassword());
+		}
+		catch (NullPointerException e) {
+			return "index.xhtml";
+		}
 		
 		if (pw==true) {
 			getUserModel().setRegisteredEvents(EventService.eventsForUser(getUserModel().getUsername()));
