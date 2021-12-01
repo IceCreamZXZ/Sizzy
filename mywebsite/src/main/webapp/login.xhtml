@@ -4,17 +4,17 @@
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 	<h:head>
 		<title>Login</title>
-		<link rel="stylesheet" type="text/css" href="login-style.css"/>
+		<link rel="stylesheet" type="text/css" href="resources/css/login-style.css"/>
 	</h:head>
 	<h:body>
 		<div class="loginbox">
-			<img src="login-avatar.png" class="avatar"/>
+			<img src="resources/images/login-avatar.png" class="avatar"/>
 			<h1>Login</h1>
 			<h:form>
 				<p>Benutzername</p>
-				<h:inputText class="logUsername" id="username" value="#{loginBean.username}" lable="username" required="true" requiredMessage="Ungültiger username!" a:placeholder="Bitte den Benutzernamen eingeben"/>
+				<h:inputText class="logUsername" id="username" value="#{loginBean.userModel.username}" lable="username" required="true" requiredMessage="Ungültiger username!" a:placeholder="Bitte den Benutzernamen eingeben"/>
 				<p>Passwort</p>
-				<h:inputSecret class="logPassword" id="password" value="#{loginBean.password}" lable="password" required="true" requiredMessage="Ungültiges Passwort!" a:placeholder="Bitte ihr Passwort eingeben"/>
+				<h:inputSecret class="logPassword" id="password" value="#{loginBean.userModel.password}" lable="password" required="true" requiredMessage="Ungültiges Passwort!" a:placeholder="Bitte ihr Passwort eingeben"/>
 				<h:commandButton class="logButton" value="Login" action="#{loginBean.isPwCorrect}"/>
 				<br/><br/>
 				<a href="registration.xhtml">Du hast noch keinen Account?</a>

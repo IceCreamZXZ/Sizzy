@@ -1,23 +1,37 @@
 package de.mywebsite.pages;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
+import de.mywebsite.model.UserModel;
+import de.mywebsite.service.EventService;
 import de.mywebsite.service.LoginService;
 
 @ManagedBean
+@SessionScoped
 public class LoginBean {
-	private String username;
-	private String password;
-	private String compPassword;
+	@ManagedProperty("#{userModel}")
+	private UserModel userModel;
 	
 	public LoginBean() {
 		
 	}
 	
 	public String isPwCorrect() {
-		boolean pw = LoginService.isPasswordRight(username, password);
+		
+		boolean pw = false;
+		
+		try {
+			
+		pw = LoginService.isPasswordRight(getUserModel().getUsername(), getUserModel().getPassword());
+		}
+		catch (NullPointerException e) {
+			return "index.xhtml";
+		}
 		
 		if (pw==true) {
+			getUserModel().setRegisteredEvents(EventService.eventsForUser(getUserModel().getUsername()));
 			return "welcome.xhtml";
 		}
 		else {
@@ -26,28 +40,12 @@ public class LoginBean {
 		
 	}
 
-	public String getUsername() {
-		return username;
+	public UserModel getUserModel() {
+		return userModel;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getCompPassword() {
-		return compPassword;
-	}
-
-	public void setCompPassword(String compPassword) {
-		this.compPassword = compPassword;
+	public void setUserModel(UserModel userModel) {
+		this.userModel = userModel;
 	}
 	
 }

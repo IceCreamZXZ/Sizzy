@@ -1,6 +1,7 @@
 <html lang="en"
 	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 	<h:head>
 		<title>Willkommen</title>
 		<style>
@@ -9,5 +10,12 @@
 	</h:head>
 	<h:body>
 		<h1 align="center" style="color:red; font-size:50px">Es hat funktioniert</h1>
+		<ul>
+			<ui:repeat var="Events" value="#{loginBean.userModel.registeredEvents}">
+				<li>#{Events}</li>
+			</ui:repeat>
+		</ul>
+		<a href="createEvent.xhtml">Event Erstellen</a>
+		<a href="signUpForEvent.xhtml">Alle Events</a>
 	</h:body>
 </html>
