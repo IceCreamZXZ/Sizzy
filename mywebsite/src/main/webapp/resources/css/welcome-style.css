@@ -1,0 +1,30 @@
+.body {
+	background-color: #353633;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+.headbar {
+	width: 100%;
+	margin: auto;
+	padding: 10px 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: #fff;
+}
+
+.container {
+	padding: 3em;
+	display: grid;
+	grid-gap: 2em;
+	grid-template-columns: rpeat(auto-fill, minmax(250px, 1fr));
+}
+
+.mainbox {
+	background: rgba(f, f, f, 0.75);
+	width: 80%;
+	height: auto;
+	margin-left: 100px;
+}

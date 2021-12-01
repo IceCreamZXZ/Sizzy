@@ -4,18 +4,20 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 	<h:head>
 		<title>Willkommen</title>
-		<style>
-			.error{color:red}
-		</style>
+		<link rel="stylesheet" type="text/css" href="resources/css/welcome-style.css"/>
 	</h:head>
 	<h:body>
-		<h1 align="center" style="color:red; font-size:50px">Es hat funktioniert</h1>
-		<ul>
-			<ui:repeat var="Events" value="#{loginBean.userModel.registeredEvents}">
-				<li>#{Events}</li>
-			</ui:repeat>
-		</ul>
-		<a href="createEvent.xhtml">Event Erstellen</a>
-		<a href="signUpForEvent.xhtml">Alle Events</a>
+		<div class="container">
+			<div class="headbar">
+				<ul>
+					<li><a href="signUpForEvent.xhtml">Events</a></li>
+					<li><a href="createEvent.xhtml">Event erstellen</a></li>
+					<li><h:outputText id="username">#{userModel.username}</h:outputText></li>
+				</ul>
+			</div>
+			<div class="mainbox">
+				
+			</div>
+		</div>
 	</h:body>
 </html>
