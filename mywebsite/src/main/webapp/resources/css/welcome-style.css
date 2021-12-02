@@ -1,4 +1,4 @@
-.body {
+* {
 	background-color: #353633;
 	margin: 0;
 	padding: 0;
@@ -20,6 +20,19 @@
 	display: grid;
 	grid-gap: 2em;
 	grid-template-columns: rpeat(auto-fill, minmax(250px, 1fr));
+}
+
+.headbar ul li {
+	list-style: none;
+	display: inline-block;
+	margin: 0 15px;
+	position: relative;
+}
+
+.headbar ul li a {
+	text-decoration: none;
+	color: #fff;
+	text-transform: uppercase;
 }
 
 .mainbox {
