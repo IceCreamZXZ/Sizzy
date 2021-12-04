@@ -2,6 +2,7 @@ package de.mywebsite.service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -49,12 +50,13 @@ public class EventService {
 		
 	}
 	
-	public static List<EventEntity> listAllEvents() {
+	public static List<EventModel> listAllEvents() {
 		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
 		String query = "SELECT u FROM EventEntity u";
 		
 		TypedQuery<EventEntity> tq = em.createQuery(query, EventEntity.class);
 		List<EventEntity> result = new ArrayList<EventEntity>();
+		List<EventModel> events = new ArrayList<EventModel>();
 		try {
 			result = tq.getResultList();
 		}
@@ -65,7 +67,24 @@ public class EventService {
 			em.close();
 		}
 		
-		return result;
+		for (int i = 0; i < result.size(); i++) {
+			EventEntity ee = result.get(i);
+			EventModel event = new EventModel();
+			
+			event.setDate(ee.getDate());
+			event.setEventID(ee.getEventId());
+			event.setEventName(ee.getEventName());
+			event.setGame(ee.getGame());
+			event.setHost(ee.getHost());
+			event.setLocation(ee.getLocation());
+			event.setMaxPlayer(ee.getMaxPlayer());
+			event.setRegisteredPlayers(ee.getRegisteretPlayers());
+			
+			events.add(event);
+		
+		}
+		
+		return events;
 		
 	}
 	

@@ -20,16 +20,18 @@ public class SignUpForEventBean {
 	@ManagedProperty("#{userModel}")
 	private UserModel userModel;
 	
-	List<EventEntity> list = new ArrayList<EventEntity>();
+	List<EventModel> list = new ArrayList<EventModel>();
+	
+	private EventModel selectedModel;
 	
 	public SignUpForEventBean() {
 		list = EventService.listAllEvents();
 	}
 	
 	public String signUpForEvent() {
-		EventService.eventSignUp(getEventModel().getEventID(), getUserModel().getUsername());
+		EventService.eventSignUp(getSelectedModel().getEventID(), getUserModel().getUsername());
 		
-		return "signUpForEvent.xhtml";
+		return "welcome.xhtml";
 	}
 
 	public EventModel getEventModel() {
@@ -48,12 +50,20 @@ public class SignUpForEventBean {
 		this.userModel = userModel;
 	}
 
-	public List<EventEntity> getList() {
+	public List<EventModel> getList() {
 		return list;
 	}
 
-	public void setList(List<EventEntity> list) {
+	public void setList(List<EventModel> list) {
 		this.list = list;
+	}
+
+	public EventModel getSelectedModel() {
+		return selectedModel;
+	}
+
+	public void setSelectedModel(EventModel selectedModel) {
+		this.selectedModel = selectedModel;
 	}
 	
 }
