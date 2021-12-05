@@ -34,7 +34,7 @@
 			<p:dataViewListItem>
 				<h:panelGrid columns="3" style="width:100%"
 					columnClasses="logo,detail">
-<!-- 					<p:graphicImage name="demo/images/car/#{car.brand}-big.gif" /> -->
+					<p:graphicImage/>
 
 					<p:outputPanel>
 						<h:panelGrid columns="2" cellpadding="5">
@@ -58,19 +58,13 @@
 						</h:panelGrid>
 					</p:outputPanel>
 
-					<p:commandLink update=":form:eventDetail"
-						oncomplete="PF('eventDialog').show()" title="View Detail">
-						<h:outputText styleClass="ui-icon pi pi-search"
-							style="margin:0 auto;" />
-						<f:setPropertyActionListener value="#{event}"
-							target="#{signUpForEventBean.selectedModel}" />
-					</p:commandLink>
-
-<!-- 						<h:commandButton action="#{signUpForEventBean.signUpForEvent}" styleClass="commitButton"> -->
-<!--  							<f:setPropertyActionListener value="#{event}" -->
-<!--  								target="#{signUpForEventBean.selectedModel}" /> -->
-<!--  						</h:commandButton> -->
-
+						<p:outputPanel>
+							<h:commandButton action="#{signUpForEventBean.signUpForEvent}" class="button">
+	 							<f:setPropertyActionListener value="#{event}"
+	 								target="#{signUpForEventBean.selectedModel}" />
+	 						</h:commandButton>
+	 					</p:outputPanel>
+	 					
 				</h:panelGrid>
 			</p:dataViewListItem>
 		</p:dataView>

@@ -8,7 +8,6 @@ import javax.faces.bean.ManagedProperty;
 
 import de.mywebsite.model.EventModel;
 import de.mywebsite.model.UserModel;
-import de.mywebsite.persistence.EventEntity;
 import de.mywebsite.service.EventService;
 
 @ManagedBean
