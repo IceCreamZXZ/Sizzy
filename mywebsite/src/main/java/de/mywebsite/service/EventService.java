@@ -139,6 +139,7 @@ public class EventService {
 			event.setLocation(ee.getLocation());
 			event.setMaxPlayer(ee.getMaxPlayer());
 			event.setRegisteredPlayers(ee.getRegisteretPlayers());
+			event.setEventID(ee.getEventId());
 			
 			list.add(event);
 		}

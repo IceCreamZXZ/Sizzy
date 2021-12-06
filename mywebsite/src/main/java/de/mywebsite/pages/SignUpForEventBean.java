@@ -32,6 +32,20 @@ public class SignUpForEventBean {
 		
 		return "welcome.xhtml";
 	}
+	
+	public boolean isSignedUp(EventModel em) {
+		List<EventModel> list = EventService.eventsForUser(getUserModel().getUsername());
+		
+		for (int i = 0; i < list.size(); i++) {
+			EventModel event = list.get(i);
+			
+			if(event.getEventID()==em.getEventID()) {
+				return false;
+			}
+			
+		}
+		return true;
+	}
 
 	public EventModel getEventModel() {
 		return eventModel;

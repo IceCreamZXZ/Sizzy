@@ -19,7 +19,7 @@
 }
 
 .button {
-	background-image: url(../images/gruenes-haekchen.png);
+	background-image: url(../images/blaues-plus.png);
 	background-size: cover;
 	background-position: center;
 	width: 35px;
@@ -34,4 +34,13 @@
 
 .button:hover {
 	cursor: pointer;
+}
+
+.haekchen {
+	background-image: url(../images/gruenes-haekchen.png);
+	background-size: cover;
+	background-position: center;
+	width: 35px;
+	height: 30px;
+	background-color: #353633;
 }

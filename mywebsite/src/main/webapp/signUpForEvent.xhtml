@@ -58,11 +58,15 @@
 						</h:panelGrid>
 					</p:outputPanel>
 
-						<p:outputPanel>
+						<p:outputPanel rendered="#{signUpForEventBean.isSignedUp(event)}">
 							<h:commandButton action="#{signUpForEventBean.signUpForEvent}" class="button">
 	 							<f:setPropertyActionListener value="#{event}"
 	 								target="#{signUpForEventBean.selectedModel}" />
 	 						</h:commandButton>
+	 					</p:outputPanel>
+	 					
+	 					<p:outputPanel rendered="#{!singUpForEventBean.isSignedUp(event)}">
+	 						<h:outputText class="haekchen"/>
 	 					</p:outputPanel>
 	 					
 				</h:panelGrid>
