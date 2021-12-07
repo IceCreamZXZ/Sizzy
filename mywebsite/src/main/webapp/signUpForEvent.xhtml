@@ -50,25 +50,25 @@
 							<h:outputText value="Spiel:" />
 							<h:outputText value="#{event.game}" style="font-weight: bold" />
 							
-							<h:outputText value="Max Spieler:" />
-							<h:outputText value="#{event.maxPlayer}" style="font-weight: bold" />
+							<h:outputText value="Freie Plätze:" />
+							<h:outputText value="#{event.registeredPlayers}/#{event.maxPlayer}" style="font-weight: bold" />
 							
 							<h:outputText value="Ersteller:" />
 							<h:outputText value="#{event.host}" style="font-weight: bold" />
 						</h:panelGrid>
 					</p:outputPanel>
-
-						<p:outputPanel rendered="#{signUpForEventBean.isSignedUp(event)}">
+						
+						<p:outputPanel rendered="#{signUpForEventBean.isSignedUp(event) &amp;&amp; signUpForEventBean.slotsLeft(event)}">
 							<h:commandButton action="#{signUpForEventBean.signUpForEvent}" class="button">
 	 							<f:setPropertyActionListener value="#{event}"
 	 								target="#{signUpForEventBean.selectedModel}" />
 	 						</h:commandButton>
 	 					</p:outputPanel>
-	 					
-	 					<p:outputPanel rendered="#{!singUpForEventBean.isSignedUp(event)}">
-	 						<h:outputText class="haekchen"/>
+
+	 					<p:outputPanel rendered="#{!signUpForEventBean.isSignedUp(event)}">
+	 						<img src="resources/images/gruenes-haekchen.png" class="haekchen"/>
 	 					</p:outputPanel>
-	 					
+													 								
 				</h:panelGrid>
 			</p:dataViewListItem>
 		</p:dataView>

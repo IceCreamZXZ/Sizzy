@@ -9,6 +9,10 @@
 	border-bottom-color: var(- -input-border-color, #A8A8A8);
 }
 
+.dataview-header {
+	background: #353633;
+}
+
 .logo {
 	width: 5%;
 }
@@ -37,9 +41,6 @@
 }
 
 .haekchen {
-	background-image: url(../images/gruenes-haekchen.png);
-	background-size: cover;
-	background-position: center;
 	width: 35px;
 	height: 30px;
 	background-color: #353633;

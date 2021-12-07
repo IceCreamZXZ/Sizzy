@@ -2,7 +2,6 @@ package de.mywebsite.service;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -152,12 +151,22 @@ public class EventService {
 		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
 		EntityTransaction et = null;
 		EventsPlayersEntity eventUser = new EventsPlayersEntity();
+		EventEntity event = getSingleEvent(eventID);
+		int registeredPlayers = 0;
 		try {
 			et = em.getTransaction();
 			et.begin();
 			eventUser.setEventID(eventID);
 			eventUser.setPlayer(username);
 			em.persist(eventUser);
+			et.commit();
+			
+			et = em.getTransaction();
+			et.begin();
+			registeredPlayers = event.getRegisteretPlayers();
+			registeredPlayers++;
+			event.setRegisteretPlayers(registeredPlayers);
+			em.merge(event);
 			et.commit();
 		}
 		catch (Exception e) {

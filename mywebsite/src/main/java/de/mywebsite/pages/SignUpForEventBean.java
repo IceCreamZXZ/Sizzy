@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedProperty;
 
 import de.mywebsite.model.EventModel;
 import de.mywebsite.model.UserModel;
+import de.mywebsite.persistence.EventEntity;
 import de.mywebsite.service.EventService;
 
 @ManagedBean
@@ -30,7 +31,8 @@ public class SignUpForEventBean {
 	public String signUpForEvent() {
 		EventService.eventSignUp(getSelectedModel().getEventID(), getUserModel().getUsername());
 		
-		return "welcome.xhtml";
+		
+		return "singUpForEvent.xhtml";
 	}
 	
 	public boolean isSignedUp(EventModel em) {
@@ -45,6 +47,17 @@ public class SignUpForEventBean {
 			
 		}
 		return true;
+	}
+	
+	public boolean slotsLeft(EventModel em) {
+		EventEntity event = EventService.getSingleEvent(em.getEventID());
+		
+		if(event.getMaxPlayer()>event.getRegisteretPlayers()) {
+			return true;
+		}
+		
+		return false;
+		
 	}
 
 	public EventModel getEventModel() {
