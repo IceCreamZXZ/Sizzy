@@ -11,10 +11,72 @@ body {
 	justify-content: center;
 	align-items: center;
 	padding: 10px;
-	background: linear-gradient(135deg, #d30019, #ba0081);
+	background-color: #353633;
+}
+
+.banner {
+	width: 100%;
+	height: 100vh;
+	background-color: #353633;
+}
+
+.navbar {
+	width: 80%;
+	margin: auto;
+	padding: 10px 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: rgba(0, 0, 0, 0.6)
+}
+
+.logo {
+	padding: 0 0 0 65px;
+	width: 200px;
+	height: auto;
+	cursor: pointer;
+}
+
+.navbar ul li {
+	list-style: none;
+	display: inline-block;
+	margin: 0 15px;
+	position: relative;
+}
+
+.navbar ul li a {
+	text-decoration: none;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.navbar ul li::after {
+	content: '';
+	height: 3px;
+	width: 0%;
+	background: #fb2525;
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	transition: 0.35s;
+}
+
+.navbar ul li:hover::after {
+	width: 100%;
+}
+
+.username {
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: nonoe;
+}
+
+.username:hover {
+	cursor: pointer;
 }
 
 .container {
+	margin-left: 200px;
 	max-width: 700px;
 	width: 100%;
 	background: #fff;

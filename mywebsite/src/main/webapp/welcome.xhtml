@@ -8,12 +8,12 @@
 	</h:head>
 	<h:body>
 		<div class="container">
-			<div class="headbar">
-			<span>Irgendwas</span>
+			<div class="navbar">
+				<img src="resources/images/Logo.png" class="logo"/>
 				<ul>
 					<li><a href="signUpForEvent.xhtml">Events</a></li>
-					<li><a href="createEvent.xhtml">Event erstellen</a></li>
-<!-- 					<li><h:outputText id="username" value="#{userModel.username}"/></li> -->
+					<li><a href="createEvent.xhtml">Event Erstellen</a></li>
+					<li><h:outputLabel value="#{welcomeBean.userModel.username}" class="username"/></li>
 				</ul>
 			</div>
 			<div class="mainbox">
