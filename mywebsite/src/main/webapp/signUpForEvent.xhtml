@@ -5,19 +5,17 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Events</title>
-	<link rel="stylesheet" type="text/css"
-		href="resources/css/signUpForEvent-style.css" />
+	<link rel="stylesheet" type="text/css" href="resources/css/signUpForEvent-style.css"/>
 </h:head>
 <h:body>
 	<div class="banner">
 		<div class="navbar">
-			<a href="welcome.xhtml"><img src="resources/images/Logo.png" class="logo" /></a>
+			<a href="welcome.xhtml"><img src="resources/images/Logo.png" class="logo"/></a>
 			<ul>
 				<li><a href="createEvent.xhtml">Event Erstellen</a></li>
-				<li><h:outputLabel value="#{signUpForEventBean.userModel.username}"/></li>
+				<li><h:outputLabel value="#{signUpForEventBean.userModel.username}" class="username"/></li>
 			</ul>
 		</div>
-		<div class="content">
 			<h:form id="form">
 				<p:dataView var="event" value="#{signUpForEventBean.list}"
 					gridIcon="pi pi-th-large" listIcon="pi pi-bars">
@@ -60,7 +58,7 @@
 
 					<p:dataViewListItem>
 						<h:panelGrid columns="3" style="width:100%"
-							columnClasses="logo,detail">
+							columnClasses="five-percent, eightyfive-percent, ten-percent">
 							<p:graphicImage />
 
 							<p:outputPanel>
@@ -79,7 +77,7 @@
 									<h:outputText value="Spiel:" />
 									<h:outputText value="#{event.game}" style="font-weight: bold" />
 
-									<h:outputText value="Freie Plätze:" />
+									<h:outputText value="Belegte Plätze:" />
 									<h:outputText
 										value="#{event.registeredPlayers}/#{event.maxPlayer}"
 										style="font-weight: bold" />
@@ -102,6 +100,11 @@
 								rendered="#{!signUpForEventBean.isSignedUp(event)}">
 								<img src="resources/images/gruenes-haekchen.png"
 									class="haekchen" />
+							</p:outputPanel>
+							
+							<p:outputPanel
+								rendered="#{signUpForEventBean.isSignedUp(event) &amp;&amp; !signUpForEvent.slotsLeft(event)}">
+								<p:graphicImage/>
 							</p:outputPanel>
 
 						</h:panelGrid>
@@ -143,7 +146,6 @@
 					</p:outputPanel>
 				</p:dialog>
 			</h:form>
-		</div>
-	</div>
+		</div>	
 </h:body>
 </html>

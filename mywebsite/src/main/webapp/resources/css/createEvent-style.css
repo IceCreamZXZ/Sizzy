@@ -10,18 +10,18 @@ body {
 	height: 100vh;
 	justify-content: center;
 	align-items: center;
-	padding: 10px;
 	background-color: #353633;
 }
 
 .banner {
 	width: 100%;
 	height: 100vh;
-	background-color: #353633;
+	background-image: url(../images/login-background.jpg);
+	background-size: cover;
 }
 
 .navbar {
-	width: 80%;
+	width: 100%;
 	margin: auto;
 	padding: 10px 0;
 	display: flex;
@@ -76,27 +76,44 @@ body {
 }
 
 .container {
-	margin-left: 200px;
 	max-width: 700px;
 	width: 100%;
-	background: #fff;
+	background: rgba(0, 0, 0, 0.8);
 	padding: 25px 30px;
 	border-radius: 5px;
+	color: #fff;
+}
+
+.main {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	top: 12%;
+}
+
+.boxes {
+	border: none;
+	border-bottom: 1px solid #fb2525;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+}
+
+body .ui-inputfield{
+	border: none;
+	border-bottom: 1px solid #fb2525;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
 }
 
 .container .title {
 	font-size: 25px;
 	font-weight: 500;
-}
-
-.container .title::before {
-	content: '';
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	height: 3px;
-	width: 30px;
-	background: linear-gradient(135deg, #d30019, #ba0081);
 }
 
 .container form .input-detail {
@@ -121,9 +138,6 @@ form .input-detail .input-box {
 .input-detail .input-box input {
 	height: 45px;
 	width: 100%;
-	outline: none;
-	border-radius: 5px;
-	border: 1px solid #ccc;
 	padding-left: 15px;
 	font-size: 16px;
 }
@@ -133,7 +147,7 @@ form .input-detail .input-box {
 	outline: none;
 	height: 45px;
 	width: 70%;
-	background: linear-gradient(135deg, #d30019, #ba0081);
+	background: #fb2525;
 	color: #fff;
 	font-size: 18px;
 	border-radius: 20px;

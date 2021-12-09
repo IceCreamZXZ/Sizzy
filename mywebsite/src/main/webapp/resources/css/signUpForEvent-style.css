@@ -1,4 +1,7 @@
 * {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
 	color: white;
 }
 
@@ -53,6 +56,16 @@
 	width: 100%;
 }
 
+.username {
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: nonoe;
+}
+
+.username:hover {
+	cursor: pointer;
+}
+
 .ui-dataview-list .ui-dataview-row {
 	border-bottom: 1px solid #A8A8A8;
 	padding: 25px 10px;
@@ -82,12 +95,17 @@ body .ui-panel .ui-panel-content {
 }
 
 body .ui-dataview.ui-dataview-list .ui-dataview-row {
+	background-color: #353633;
 	border: solid #fb2525;
 	border-top-width: medium;
     border-right-width: medium;
     border-bottom-width: medium;
     border-left-width: medium;
 	border-width: 0 0 1px 0;
+}
+
+.ui-g {
+	background-color: #353633;
 }
 
 .twenty-percent {
@@ -100,8 +118,16 @@ body .ui-dataview.ui-dataview-list .ui-dataview-row {
 	
 }
 
-.logo {
+.five-percent {
 	width: 5%;
+}
+
+.eightyfive-percent {
+	width: 85%;
+}
+
+.ten-percent {
+	width: 10%
 }
 
 .detail {

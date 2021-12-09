@@ -12,56 +12,60 @@
 <h:body>
 	<div class="banner">
 		<div class="navbar">
-			<a href="welcome.xhtml"><img src="resources/images/Logo.png" class="logo"/></a>
+			<a href="welcome.xhtml"><img src="resources/images/Logo.png"
+				class="logo" /></a>
 			<ul>
 				<li><a href="signUpForEvent.xhtml">Events</a></li>
-				<li><h:outputLabel value="#{createEventBean.user.username}" class="username"/></li>
+				<li><h:outputLabel value="#{createEventBean.user.username}"
+						class="username" /></li>
 			</ul>
 		</div>
-		<div class="container">
-			<div class="title">Event erstellen</div>
-			<h:form action="#">
-				<div class="input-detail">
-					<div class="input-box">
-						<span class="details">Eventname</span>
-						<h:inputText id="eventName"
-							value="#{createEventBean.eventModel.eventName}"
-							lable="Event Name" required="true"
-							requiredMessage="Dieser Name ist ungültig"
-							a:placeholder="Eventnamen eingeben" />
+			<div class="main">
+			<div class="container">
+				<div class="title">Event erstellen</div>
+				<h:form action="#">
+					<div class="input-detail">
+						<div class="input-box">
+							<span class="details">Eventname</span>
+							<h:inputText id="eventName"
+								value="#{createEventBean.eventModel.eventName}"
+								lable="Event Name" required="true"
+								requiredMessage="Dieser Name ist ungültig"
+								a:placeholder="Eventnamen eingeben" class="boxes"/>
+						</div>
+						<div class="input-box">
+							<span class="details">Ort</span>
+							<h:inputText id="location"
+								value="#{createEventBean.eventModel.location}" lable="Ort"
+								required="true" requiredMessage="Dieser Ort ist ungültig"
+								a:placeholder="Austragungsort eingeben" class="boxes"/>
+						</div>
+						<div class="input-box">
+							<span class="details">Datum</span>
+							<p:datePicker value="#{createEventBean.eventModel.date}"/>
+						</div>
+						<div class="input-box">
+							<span class="details">Spiel</span>
+							<h:inputText id="game" value="#{createEventBean.eventModel.game}"
+								lable="Spiel" required="true"
+								requiredMessage="Dieses Spiel ist ungültig"
+								a:placeholder="Spiel auswählen" class="boxes"/>
+						</div>
+						<div class="input-box">
+							<span class="details">Max. Spielerzahl</span>
+							<h:inputText id="maxPlayers"
+								value="#{createEventBean.eventModel.maxPlayer}"
+								lable="Max Spieler" required="false"
+								a:placeholder="Leer lassen für unbegrenzt" class="boxes"/>
+						</div>
 					</div>
-					<div class="input-box">
-						<span class="details">Ort</span>
-						<h:inputText id="location"
-							value="#{createEventBean.eventModel.location}" lable="Ort"
-							required="true" requiredMessage="Dieser Ort ist ungültig"
-							a:placeholder="Austragungsort eingeben" />
+					<div class="buttonbox">
+						<h:commandButton class="button" value="Bestätigen"
+							action="#{createEventBean.createEvent}" />
 					</div>
-					<div class="input-box">
-						<span class="details">Datum</span>
-						<p:datePicker value="#{createEventBean.eventModel.date}" />
-					</div>
-					<div class="input-box">
-						<span class="details">Spiel</span>
-						<h:inputText id="game" value="#{createEventBean.eventModel.game}"
-							lable="Spiel" required="true"
-							requiredMessage="Dieses Spiel ist ungültig"
-							a:placeholder="Spiel auswählen" />
-					</div>
-					<div class="input-box">
-						<span class="details">Max. Spielerzahl</span>
-						<h:inputText id="maxPlayers"
-							value="#{createEventBean.eventModel.maxPlayer}"
-							lable="Max Spieler" required="false"
-							a:placeholder="Leer lassen für unbegrenzt" />
-					</div>
-				</div>
-				<div class="buttonbox">
-					<h:commandButton class="button" value="Bestätigen"
-						action="#{createEventBean.createEvent}" />
-				</div>
-			</h:form>
-		</div>
+				</h:form>
+			</div>
+		</div>	
 	</div>
 </h:body>
 </html>
