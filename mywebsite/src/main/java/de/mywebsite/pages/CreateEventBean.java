@@ -34,6 +34,7 @@ public class CreateEventBean {
 		int eventID = EventService.createEvent(getEventModel().getEventName(), getUser().getUsername(), getEventModel().getLocation(), getEventModel().getGame(), getEventModel().getMaxPlayer(), 1, getEventModel().getDate());
 		
 		EventService.eventSignUp(eventID, getUser().getUsername());
+		
 		return "welcome.xhtml";
 	}
 

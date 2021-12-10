@@ -151,8 +151,6 @@ public class EventService {
 		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
 		EntityTransaction et = null;
 		EventsPlayersEntity eventUser = new EventsPlayersEntity();
-		EventEntity event = getSingleEvent(eventID);
-		int registeredPlayers = 0;
 		try {
 			et = em.getTransaction();
 			et.begin();
@@ -161,6 +159,25 @@ public class EventService {
 			em.persist(eventUser);
 			et.commit();
 			
+		}
+		catch (Exception e) {
+			if (et != null) {
+				et.rollback();
+			}
+			e.printStackTrace();
+		}
+		finally {
+			em.close();
+		}
+		
+	}
+	
+	public static void addPlayer(int eventID, String username) {
+		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+		EntityTransaction et = null;
+		EventEntity event = getSingleEvent(eventID);
+		int registeredPlayers = 0;
+		try {
 			et = em.getTransaction();
 			et.begin();
 			registeredPlayers = event.getRegisteretPlayers();
@@ -170,10 +187,10 @@ public class EventService {
 			et.commit();
 		}
 		catch (Exception e) {
-			if (et != null) {
+			if(et != null) {
 				et.rollback();
 			}
-			e.printStackTrace();
+			
 		}
 		finally {
 			em.close();
