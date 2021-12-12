@@ -10,6 +10,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import com.mysql.cj.AbstractQuery;
+
 import de.mywebsite.model.EventModel;
 import de.mywebsite.persistence.EventEntity;
 import de.mywebsite.persistence.EventsPlayersEntity;
@@ -195,6 +197,45 @@ public class EventService {
 		finally {
 			em.close();
 		}
+		
+	}
+	
+	public static List<EventModel> getOwnEvents(String username) {
+		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+		String query = "SELECT u FROM EventEntity u WHERE u.host = :username";
+		
+		TypedQuery<EventEntity> tq = em.createQuery(query, EventEntity.class);
+		List<EventEntity> result = new ArrayList<EventEntity>();
+		tq.setParameter("username", username);
+		try {
+			result = tq.getResultList();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			em.close();
+		}
+		
+		List<EventModel> events = new ArrayList<EventModel>();
+		
+		for (int i = 0; i < result.size(); i++) {
+			EventModel event = new EventModel();
+			EventEntity ee = result.get(i);
+			
+			event.setDate(ee.getDate());
+			event.setEventID(ee.getEventId());
+			event.setEventName(ee.getEventName());
+			event.setGame(ee.getGame());
+			event.setHost(ee.getHost());
+			event.setLocation(ee.getLocation());
+			event.setMaxPlayer(ee.getMaxPlayer());
+			event.setRegisteredPlayers(ee.getRegisteretPlayers());
+			
+			events.add(event);
+		}
+		
+		return events;
 		
 	}
 		

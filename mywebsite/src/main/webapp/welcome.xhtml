@@ -1,7 +1,9 @@
 <html lang="en"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<title>Willkommen</title>
 		<link rel="stylesheet" type="text/css" href="resources/css/welcome-style.css"/>
@@ -13,7 +15,15 @@
 				<ul>
 					<li><a href="signUpForEvent.xhtml">Events</a></li>
 					<li><a href="createEvent.xhtml">Event Erstellen</a></li>
-					<li><h:outputLabel value="#{welcomeBean.userModel.username}" class="username"/></li>
+					<li>
+						<h:form>
+							<p:panelMenu style="width: 300px">
+								<p:submenu lable="#{welcomeBean.userModel.username}">
+									<p:menuitem value="Abmelden" action="#{welcomeBean.signOut}" ajax="false" icon="sign-out"/>
+								</p:submenu>
+							</p:panelMenu>
+						</h:form>
+					</li>
 				</ul>
 			</div>
 			<div class="mainbox">

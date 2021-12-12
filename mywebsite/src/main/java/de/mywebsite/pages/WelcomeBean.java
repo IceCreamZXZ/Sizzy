@@ -11,6 +11,16 @@ public class WelcomeBean {
 	@ManagedProperty("#{userModel}")
 	private UserModel userModel;
 
+	public WelcomeBean() {
+		
+	}
+	
+	public String signOut() {
+		userModel.flush();
+		
+		return "index.xhtml";
+	}
+	
 	public UserModel getUserModel() {
 		return userModel;
 	}
