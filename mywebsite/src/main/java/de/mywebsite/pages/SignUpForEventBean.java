@@ -39,6 +39,7 @@ public class SignUpForEventBean {
 		
 		EventService.addPlayer(getSelectedModel().getEventID(), getUserModel().getUsername());
 		
+		getUserModel().getRegisteredEvents().add(selectedModel);
 		
 		return "singUpForEvent.xhtml";
 	}
