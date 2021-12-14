@@ -9,25 +9,25 @@ import javax.faces.bean.RequestScoped;
 
 import de.mywebsite.model.EventModel;
 import de.mywebsite.model.UserModel;
-import de.mywebsite.service.EventService;
 
 @ManagedBean
 @RequestScoped
 public class WelcomeBean {
-	@ManagedProperty("#{userModel}")
-	private UserModel user;
 	
 	@ManagedProperty("#{eventModel}")
 	private EventModel eventModel;
 	
+	@ManagedProperty("#{userModel}")
+	private UserModel user;
+	
 	List<EventModel> list = new ArrayList<EventModel>();
-
+	
 	public WelcomeBean() {
-		list = EventService.eventsForUser(getUser().getUsername());
+		list = getUser().getRegisteredEvents();
 	}
 	
 	public String signOut() {
-		user.flush();
+		getUser().flush();
 		
 		return "index.xhtml";
 	}
@@ -36,8 +36,18 @@ public class WelcomeBean {
 		return eventModel;
 	}
 
+
 	public void setEventModel(EventModel eventModel) {
 		this.eventModel = eventModel;
+	}
+
+
+	public UserModel getUser() {
+		return user;
+	}
+
+	public void setUser(UserModel user) {
+		this.user = user;
 	}
 
 	public List<EventModel> getList() {
@@ -46,14 +56,6 @@ public class WelcomeBean {
 
 	public void setList(List<EventModel> list) {
 		this.list = list;
-	}
-
-	public UserModel getUser() {
-		return user;
-	}
-
-	public void setUser(UserModel user) {
-		this.user = user;
 	}
 	
 }
