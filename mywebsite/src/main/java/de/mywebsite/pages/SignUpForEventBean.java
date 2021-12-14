@@ -3,6 +3,7 @@ package de.mywebsite.pages;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
@@ -25,6 +26,11 @@ public class SignUpForEventBean {
 	private EventModel selectedModel;
 	
 	public SignUpForEventBean() {
+		
+	}
+	
+	@PostConstruct
+	public void init() {
 		list = EventService.listAllEvents();
 	}
 	

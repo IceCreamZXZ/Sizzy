@@ -3,6 +3,7 @@ package de.mywebsite.pages;
 
 import java.util.Date;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
@@ -25,6 +26,11 @@ public class CreateEventBean {
 	private Date date;
 	
 	public CreateEventBean() {
+		
+	}
+	
+	@PostConstruct
+	public void init() {
 		eventModel = new EventModel();
 	}
 	
