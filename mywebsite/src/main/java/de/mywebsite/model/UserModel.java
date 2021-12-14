@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 @ManagedBean
@@ -12,9 +11,20 @@ import javax.faces.bean.SessionScoped;
 public class UserModel {
 	private String username;
 	private String password;
-	@ManagedProperty("#{registeredEvents}")
 	private List<EventModel> registeredEvents = new ArrayList<EventModel>();
 	private List<EventModel> ownEvents = new ArrayList<EventModel>();
+	
+	public UserModel() {
+		
+	}
+	
+	public void flush() {
+		username = null;
+		password = null;
+		
+		registeredEvents.clear();
+		ownEvents.clear();
+	}
 	
 	public String getUsername() {
 		return username;

@@ -1,7 +1,7 @@
 package de.mywebsite.pages;
 
-
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -10,11 +10,10 @@ import javax.faces.bean.RequestScoped;
 
 import de.mywebsite.model.EventModel;
 import de.mywebsite.model.UserModel;
-import de.mywebsite.service.EventService;
 
 @ManagedBean
 @RequestScoped
-public class CreateEventBean {
+public class WelcomeBean {
 	
 	@ManagedProperty("#{eventModel}")
 	private EventModel eventModel;
@@ -22,29 +21,22 @@ public class CreateEventBean {
 	@ManagedProperty("#{userModel}")
 	private UserModel user;
 	
+	List<EventModel> list = new ArrayList<EventModel>();
 	
-	private Date date;
-	
-	public CreateEventBean() {
+	public WelcomeBean() {
 		
 	}
 	
 	@PostConstruct
 	public void init() {
-		eventModel = new EventModel();
+		list = getUser().getRegisteredEvents();
 	}
 	
-	
-	public String createEvent() {
+	public String signOut() {
+		getUser().flush();
 		
-		int eventID = EventService.createEvent(getEventModel().getEventName(), getUser().getUsername(), getEventModel().getLocation(), getEventModel().getGame(), getEventModel().getMaxPlayer(), 1, getEventModel().getDate());
-		
-		EventService.eventSignUp(eventID, getUser().getUsername());
-		
-		return "welcome.xhtml";
+		return "index.xhtml";
 	}
-
-	
 
 	public EventModel getEventModel() {
 		return eventModel;
@@ -64,14 +56,12 @@ public class CreateEventBean {
 		this.user = user;
 	}
 
-
-	public Date getDate() {
-		return date;
+	public List<EventModel> getList() {
+		return list;
 	}
 
-
-	public void setDate(Date date) {
-		this.date = date;
+	public void setList(List<EventModel> list) {
+		this.list = list;
 	}
 	
 }
