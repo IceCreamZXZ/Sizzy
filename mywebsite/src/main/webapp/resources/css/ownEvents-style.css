@@ -1,0 +1,169 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+body {
+	color: #fff;
+}
+
+.container {
+	width: 100%;
+	height: 100vh;
+	background-color: #353633;
+}
+
+.navbar {
+	width: 100%;
+	margin: auto;
+	padding: 10px 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: rgba(0, 0, 0, 0.6)
+}
+
+.logo {
+	padding: 0 0 0 65px;
+	width: 200px;
+	height: auto;
+	cursor: pointer;
+}
+
+.navbar ul li {
+	list-style: none;
+	display: inline-block;
+	margin: 0 15px;
+	position: relative;
+}
+
+.navbar ul li a {
+	text-decoration: none;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.navbar ul li::after {
+	content: '';
+	height: 3px;
+	width: 0%;
+	background: #fb2525;
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	transition: 0.35s;
+}
+
+.navbar ul li:hover::after {
+	width: 100%;
+}
+
+.username {
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: nonoe;
+}
+
+.username:hover {
+	cursor: pointer;
+}
+
+.mainbox {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	top: 12%;
+	background-color: #353633;
+}
+
+.events {
+	max-width: 1100px;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	padding: 25px 30px;
+	border-radius: 5px;
+	color: #fff;
+}
+
+.twenty-percent {
+	width: 20%
+}
+
+.sixty-percent {
+	width: 60%;
+	text-align: center;
+	
+}
+
+.five-percent {
+	width: 5%;
+}
+
+.eightyfive-percent {
+	width: 85%;
+}
+
+.ten-percent {
+	width: 10%
+}
+
+.ui-dataview-list .ui-dataview-row {
+	border-bottom: 1px solid #A8A8A8;
+	padding: 25px 10px;
+	border-bottom-color: var(- -input-border-color, #A8A8A8);
+	background: none;
+}
+
+body .ui-dataview .ui-dataview-header {
+	background: none;
+	border: 1px solid #fb2525;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+	border-width: 1px 0 1px 0;
+}
+
+body .ui-dataview .ui-dataview-content {
+	background: none;
+	color: #fff;
+}
+
+body .ui-panel .ui-panel-titlebar {
+	background: none;
+	border: 1px solid #fb2525;
+}
+
+body .ui-panel .ui-panel-content {
+	border: 1px solid #fb2525;
+	min-height: 100px;
+	display: grid;
+	background: none;
+}
+
+body .ui-dataview.ui-dataview-list .ui-dataview-row {
+	background: none;
+	background-image: none;
+	border: solid #fb2525;
+	border-top-width: medium;
+    border-right-width: medium;
+    border-bottom-width: medium;
+    border-left-width: medium;
+	border-width: 0 0 1px 0;
+	opacity: 100%;
+	color: white;
+}
+
+.ui-g {
+	background-color: none;
+}
+
+.ui-panelgrid {
+    background: transparent;
+}
+
+.ui-dataview .ui-dataview-header {
+    border-bottom: 0 none;
+    display: none;
+}

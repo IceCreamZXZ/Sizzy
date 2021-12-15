@@ -10,11 +10,12 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import com.mysql.cj.AbstractQuery;
 
 import de.mywebsite.model.EventModel;
+import de.mywebsite.model.UserModel;
 import de.mywebsite.persistence.EventEntity;
 import de.mywebsite.persistence.EventsPlayersEntity;
+import de.mywebsite.persistence.LoginEntity;
 
 public class EventService {
 	private static EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence
@@ -236,6 +237,44 @@ public class EventService {
 		}
 		
 		return events;
+		
+	}
+	
+	public static List<UserModel> getUserForEvent(int eventID) {
+		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+		String query = "SELECT u FROM eventsPlayers WHERE u.eventID = eventID";
+		
+		TypedQuery<EventsPlayersEntity> tq = em.createQuery(query, EventsPlayersEntity.class);
+		List<EventsPlayersEntity> result = new ArrayList<EventsPlayersEntity>();
+		tq.setParameter("eventID", eventID);
+		try {
+			result = tq.getResultList();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			em.close();
+		}
+		
+		List<UserModel> list = new ArrayList<UserModel>();
+		
+		for (int i = 0; i < result.size(); i++) {
+			EventsPlayersEntity epe = result.get(i);
+			LoginEntity le = new LoginEntity();
+			UserModel user = new UserModel();
+			
+			le = LoginService.getAccount(epe.getPlayer());
+			
+			user.setUsername(le.getUsername());
+			user.setOwnEvents(getOwnEvents(le.getUsername()));
+			user.setPassword(le.getPassword());
+			user.setRegisteredEvents(eventsForUser(le.getUsername()));
+			
+			list.add(user);
+		}
+		
+		return list;
 		
 	}
 		

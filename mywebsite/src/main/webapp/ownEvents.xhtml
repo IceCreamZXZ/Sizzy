@@ -1,0 +1,105 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title>Eigene Events</title>
+		<link rel="stylesheet" type="text/css" href="resources/css/ownEvents-style.css"/>
+	</h:head>
+	<h:body>
+		<div class="container">
+			<div class="navbar">
+			<a href="welcome.xhtml"><img src="resources/images/Logo.png" class="logo" /></a>
+			<ul>
+				<li><a href="signUpForEvent.xhtml">Events</a></li>
+				<li><a href="createEvent.xhtml">Event Erstellen</a></li>
+				<li><h:outputLabel value="#{ownEventsBean.user.username}"
+						class="username" /></li>
+			</ul>
+			</div>
+			<div class="mainbox">
+				<div class="events">
+					<h:form>
+					<p:dataView var="event" value="#{ownEventsBean.events}"
+						gridIcon="pi pi-th-large" listIcon="pi pi-bars" emptyMessage="Du hast noch kein eigenes Event erstellt">
+						<p:dataViewListItem>
+							<h:panelGrid columns="3" style="width:100%"
+								columnClasses="five-percent, eightyfive-percent, ten-percent">
+								<p:graphicImage />
+
+								<p:outputPanel>
+									<h:panelGrid columns="2" cellpadding="5">
+										<h:outputText value="Name:" />
+										<h:outputText value="#{event.eventName}"
+											style="font-weight: bold" />
+
+										<h:outputText value="Ort:" />
+										<h:outputText value="#{event.location}"
+											style="font-weight: bold" />
+
+										<h:outputText value="Datum:" />
+										<h:outputText value="#{event.date}" style="font-weight: bold" />
+
+										<h:outputText value="Spiel:" />
+										<h:outputText value="#{event.game}" style="font-weight: bold" />
+
+										<h:outputText value="Belegte Plätze:" />
+										<h:outputText
+											value="#{event.registeredPlayers}/#{event.maxPlayer}"
+											style="font-weight: bold" />
+
+										<h:outputText value="Ersteller:" />
+										<h:outputText value="#{event.host}" style="font-weight: bold" />
+									</h:panelGrid>
+								</p:outputPanel>
+								<p:commandLink update=":form:eventDetail"
+									oncomplete="PF('eventDialog').show()" title="View Detail">
+									<h:outputText styleClass="ui-icon pi pi-search"
+										style="margin:0 auto;" />
+									<f:setPropertyActionListener value="#{event}"
+										target="#{ownEventsBean.selectedModel}" />
+								</p:commandLink>
+							</h:panelGrid>
+						</p:dataViewListItem>
+					</p:dataView>
+					<p:dialog header="Event Info" widgetVar="eventDialog" modal="true"
+					showEffect="fade" hideEffect="fade" resizable="false">
+					<p:outputPanel id="eventDetail" style="text-align:center;">
+						<p:panelGrid columns="2"
+							rendered="#{not empty signUpForEventBean.selectedModel}"
+							columnClasses="label,value">
+							<f:facet name="header">
+								<!-- 						<p:graphicImage -->
+								<!-- 							name="demo/images/car/#{dataGridView.selectedCar.brand}-big.gif" /> -->
+							</f:facet>
+
+							<h:outputText value="Name:" />
+							<h:outputText
+								value="#{signUpForEventBean.selectedModel.eventName}" />
+
+							<h:outputText value="Ersteller:" />
+							<h:outputText value="#{signUpForEventBean.selectedModel.host}" />
+
+							<h:outputText value="Ort:" />
+							<h:outputText
+								value="#{signUpForEventBean.selectedModel.location}" />
+
+							<h:outputText value="Datum:" />
+							<h:outputText value="#{signUpForEventBean.selectedModel.date}" />
+
+							<h:outputText value="Spiel:" />
+							<h:outputText value="#{signUpForEventBean.selectedModel.game}" />
+
+							<h:outputText value="Max Spieler:" />
+							<h:outputText
+								value="#{signUpForEventBean.selectedModel.maxPlayer}" />
+						</p:panelGrid>
+					</p:outputPanel>
+				</p:dialog>
+				</h:form>
+				</div>
+			</div>
+		</div>
+	</h:body>
+</html>
