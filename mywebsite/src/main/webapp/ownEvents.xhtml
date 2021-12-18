@@ -75,10 +75,6 @@
 							<p:panelGrid columns="1"
 								rendered="#{not empty ownEventsBean.selectedModel}"
 								columnClasses="label,value">
-<!-- 								<f:facet name="header"> -->
-<!-- 									<p:graphicImage -->
-<!-- 										name="demo/images/car/#{dataGridView.selectedCar.brand}-big.gif" /> -->
-<!-- 								</f:facet> -->
 
 								<ul>
 									<ui:repeat var="player" value="#{ownEventsBean.players(ownEventsBean.selectedModel)}">

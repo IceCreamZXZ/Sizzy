@@ -8,6 +8,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
+import org.primefaces.model.menu.DefaultMenuItem;
+import org.primefaces.model.menu.DefaultMenuModel;
+import org.primefaces.model.menu.DefaultSubMenu;
+import org.primefaces.model.menu.MenuModel;
+
 import de.mywebsite.model.EventModel;
 import de.mywebsite.model.UserModel;
 import de.mywebsite.service.EventService;
@@ -24,6 +29,8 @@ public class WelcomeBean {
 	
 	
 	List<EventModel> list = new ArrayList<EventModel>();
+	
+	private MenuModel model;
 	
 	public WelcomeBean() {
 		
@@ -44,6 +51,15 @@ public class WelcomeBean {
 			return true;
 		}
 		
+	}
+	
+	public String ownEvents() {
+		return "ownEvents.xhtml";
+	}
+	
+	public String logout () {
+		user.flush();
+		return "index.xhtml";
 	}
 	
 	public String signOut() {
@@ -76,6 +92,14 @@ public class WelcomeBean {
 
 	public void setList(List<EventModel> list) {
 		this.list = list;
+	}
+
+	public MenuModel getModel() {
+		return model;
+	}
+
+	public void setModel(MenuModel model) {
+		this.model = model;
 	}
 	
 }
