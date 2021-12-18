@@ -10,6 +10,7 @@ import javax.faces.bean.RequestScoped;
 
 import de.mywebsite.model.EventModel;
 import de.mywebsite.model.UserModel;
+import de.mywebsite.service.EventService;
 
 @ManagedBean
 @RequestScoped
@@ -21,6 +22,7 @@ public class WelcomeBean {
 	@ManagedProperty("#{userModel}")
 	private UserModel user;
 	
+	
 	List<EventModel> list = new ArrayList<EventModel>();
 	
 	public WelcomeBean() {
@@ -30,6 +32,18 @@ public class WelcomeBean {
 	@PostConstruct
 	public void init() {
 		list = getUser().getRegisteredEvents();
+	}
+	
+	public boolean isSignedUp() {
+		List<EventModel> list = EventService.eventsForUser(getUser().getUsername());
+		
+		if(list.size()==0) {
+			return false;
+		}
+		else {
+			return true;
+		}
+		
 	}
 	
 	public String signOut() {

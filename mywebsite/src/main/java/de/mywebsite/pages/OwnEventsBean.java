@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
+
 import de.mywebsite.model.EventModel;
 import de.mywebsite.model.UserModel;
 import de.mywebsite.service.EventService;
@@ -21,9 +22,7 @@ public class OwnEventsBean {
 	
 	private EventModel selectedModel;
 	
-	List<EventModel> events = new ArrayList<EventModel>();
-	
-	List<UserModel> player = new ArrayList<UserModel>();
+	private List<EventModel> events = new ArrayList<EventModel>();
 	
 	public OwnEventsBean() {
 		
@@ -32,7 +31,15 @@ public class OwnEventsBean {
 	@PostConstruct
 	public void init() {
 		events = getUser().getOwnEvents();
-		player = EventService.getUserForEvent(getSelectedModel().getEventID());
+	}
+	
+	public List<UserModel> players(EventModel event) {
+		List<UserModel> list = new ArrayList<UserModel>();
+		
+		list = EventService.getUserForEvent(event.getEventID());
+		
+		return list;
+		
 	}
 
 	public UserModel getUser() {
@@ -43,11 +50,11 @@ public class OwnEventsBean {
 		this.user = user;
 	}
 
-	public List<EventModel> getList() {
+	public List<EventModel> getEvents() {
 		return events;
 	}
 
-	public void setList(List<EventModel> list) {
+	public void setEvents(List<EventModel> list) {
 		this.events = list;
 	}
 

@@ -242,7 +242,7 @@ public class EventService {
 	
 	public static List<UserModel> getUserForEvent(int eventID) {
 		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
-		String query = "SELECT u FROM eventsPlayers WHERE u.eventID = eventID";
+		String query = "SELECT u FROM EventsPlayersEntity u WHERE u.eventID = :eventID";
 		
 		TypedQuery<EventsPlayersEntity> tq = em.createQuery(query, EventsPlayersEntity.class);
 		List<EventsPlayersEntity> result = new ArrayList<EventsPlayersEntity>();
