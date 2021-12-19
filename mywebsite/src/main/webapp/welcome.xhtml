@@ -15,17 +15,20 @@
 			<ul>
 				<li><a href="signUpForEvent.xhtml">Events</a></li>
 				<li><a href="createEvent.xhtml">Event Erstellen</a></li>
-				<li><h:outputLabel value="#{welcomeBean.user.username}" /> 
-					<h:form>
-						<p:growl id="messages" showDetail="true"/>
+				<li>
+					<div>
+						<h:form>
+							<p:growl id="messages" showDetail="true" />
 
-        				<p:contextMenu event="click contextmenu">
-							<p:menuitem value="Eigene Events" action="#{welcomeBean.ownEvents}"
-								update="messages" icon="pi pi-list" />
-							<p:menuitem value="Logout" action="#{welcomeBean.logout}"
-								update="messages" icon="pi pi-sign-out" />
-						</p:contextMenu>
-					</h:form>
+							<p:menuButton value="#{welcomeBean.user.username}">
+								<p:menuitem value="Eigene Events"
+									action="#{welcomeBean.ownEvents}" update="messages"
+									icon="pi pi-list" />
+								<p:menuitem value="Logout" action="#{welcomeBean.logout}"
+									update="messages" icon="pi pi-sign-out" />
+							</p:menuButton>
+						</h:form>
+					</div>
 				</li>
 			</ul>
 		</div>

@@ -32,6 +32,10 @@ body {
 	cursor: pointer;
 }
 
+.navbar ul {
+	margin-right: 60px;
+}
+
 .navbar ul li {
 	list-style: none;
 	display: inline-block;
@@ -43,6 +47,57 @@ body {
 	text-decoration: none;
 	color: #fff;
 	text-transform: uppercase;
+}
+
+body .ui-button {
+	background: none;
+	border: none;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.ui-state-hover {
+	background: none !important;
+}
+
+body .ui-button.ui-button-text-icon-left .ui-button-text {
+	padding: 0;
+}
+
+body .ui-button .ui-icon-triangle-1-s:before {
+	content: "";
+}
+
+body .ui-button.ui-state-focus {
+	outline: 0 none;
+	outline-offset: none;
+	box-shadow: none;
+}
+
+body .ui-button.ui-state-active, body .ui-button.ui-state-down {
+	background: none;
+	border-color: none;
+	color: #ffffff;
+}
+
+body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-icon
+	{
+	margin-right: 0.5rem;
+	vertical-align: middle;
+	float: none;
+	color: #fff;
+}
+
+body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-text
+	{
+	float: none;
+	vertical-align: middle;
+	color: #fff;
+}
+
+body .ui-menu {
+	background-color: #000;
+	margin-top: 10px !important;
 }
 
 .navbar ul li::after {

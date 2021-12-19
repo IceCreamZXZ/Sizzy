@@ -16,8 +16,18 @@
 			<ul>
 				<li><a href="signUpForEvent.xhtml">Events</a></li>
 				<li><a href="createEvent.xhtml">Event Erstellen</a></li>
-				<li><h:outputLabel value="#{ownEventsBean.user.username}"
-						class="username" /></li>
+				<li>
+					<div>
+						<h:form>
+							<p:growl id="messages" showDetail="true" />
+
+							<p:menuButton value="#{ownEventsBean.user.username}">
+								<p:menuitem value="Logout" action="#{welcomeBean.logout}"
+									update="messages" icon="pi pi-sign-out" />
+							</p:menuButton>
+						</h:form>
+					</div>
+				</li>
 			</ul>
 		</div>
 		<div class="mainbox">
