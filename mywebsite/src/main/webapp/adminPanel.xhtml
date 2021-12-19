@@ -1,0 +1,50 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Admin Panel</title>
+	<link rel="stylesheet" type="text/css"
+		href="resources/css/adminPanel-style.css" />
+</h:head>
+<h:body>
+	<div class="banner">
+		<div class="navbar">
+			<a href="welcome.xhtml"><img src="resources/images/Logo.png"
+				class="logo" /></a>
+			<ul>
+				<li><a href="signUpForEvent.xhtml">Events</a></li>
+				<li><a href="createEvent.xhtml">Event Erstellen</a></li>
+				<li>
+					<div>
+						<h:form>
+							<p:growl id="messages" showDetail="true" />
+
+							<p:menuButton value="#{createEventBean.user.username}">
+								<p:menuitem value="Eigene Events"
+									action="#{welcomeBean.ownEvents}" update="messages"
+									icon="pi pi-list" />
+								<p:menuitem value="Logout" action="#{welcomeBean.logout}"
+									update="messages" icon="pi pi-sign-out" />
+							</p:menuButton>
+						</h:form>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="mainbox">
+			<div class="options">
+				<h:panelGrid columns="2" style="width: 100%" columClasses="twenty-percent, eighty-percent">
+					<p:outputPanel>
+						<ui:include src="adminPanelSidebar.xhtml"></ui:include>
+					</p:outputPanel>
+					<p:outputPanel>
+						<ui:insert name="firstContent"/>
+					</p:outputPanel>
+				</h:panelGrid>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>

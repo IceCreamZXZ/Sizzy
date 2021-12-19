@@ -6,6 +6,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import de.mywebsite.model.UserModel;
+import de.mywebsite.persistence.BannedEntity;
 import de.mywebsite.persistence.LoginEntity;
 
 public class LoginService {
@@ -21,6 +23,7 @@ public class LoginService {
 			et.begin();
 			user.setUsername(username);
 			user.setPassword(password);
+			user.setPermission("user");
 			em.persist(user);
 			et.commit();
 		}
@@ -53,6 +56,14 @@ public class LoginService {
 			em.close();
 		}
 		
+		UserModel user = new UserModel();
+		
+		user.setPassword(result.getPassword());
+		user.setPermission(result.getPermission());
+		user.setOwnEvents(EventService.getOwnEvents(username));
+		user.setRegisteredEvents(EventService.eventsForUser(username));
+		user.setUsername(username);
+		
 		return result;
 		
 	}
@@ -60,17 +71,15 @@ public class LoginService {
 	public static void deleteAccount(String username) {
 		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
 		EntityTransaction et = null;
-		LoginEntity user = new LoginEntity();
+		LoginEntity user = getAccount(username);
 		
 		try {
-			int id = user.getId();
 			et = em.getTransaction();
 			et.begin();
-			user = em.find(LoginEntity.class, id);
+			user = em.find(LoginEntity.class, user.getId());
 			em.remove(user);
 			em.persist(user);
 			et.commit();
-			
 		}
 		catch (Exception e) {
 			if(et!=null) {
@@ -93,6 +102,32 @@ public class LoginService {
 		}
 		else {
 			return false;
+		}
+		
+	}
+	
+	public static void bannAccount(String username, String reason) {
+		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		BannedEntity user = new BannedEntity();
+		
+		deleteAccount(username);
+		
+		try {
+			et.begin();
+			user.setUsername(username);
+			user.setReason(reason);
+			em.persist(user);
+			et.commit();
+		}
+		catch(Exception e) {
+			if(et!=null) {
+				et.rollback();
+			}
+			e.printStackTrace();
+		}
+		finally {
+			em.close();
 		}
 		
 	}

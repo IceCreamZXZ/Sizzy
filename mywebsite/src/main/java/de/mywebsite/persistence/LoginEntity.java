@@ -24,6 +24,9 @@ public class LoginEntity  implements Serializable{
 	
 	@Column(name = "password", nullable = false)
 	private String password;
+	
+	@Column(name = "permission", nullable = false)
+	private String permission;
 
 	public int getId() {
 		return id;
@@ -48,6 +51,13 @@ public class LoginEntity  implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
+	public String getPermission() {
+		return permission;
+	}
+
+	public void setPermission(String permission) {
+		this.permission = permission;
+	}
 	
 }

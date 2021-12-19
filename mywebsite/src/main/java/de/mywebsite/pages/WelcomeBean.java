@@ -46,6 +46,17 @@ public class WelcomeBean {
 		
 	}
 	
+	public boolean isAdmin() {
+		if(getUser().getPermission().equals("admin")) {
+			return true;
+		}
+		return false;
+	}
+	
+	public String adminPanel() {
+		return "adminPanel.xhtml";
+	}
+	
 	public String ownEvents() {
 		return "ownEvents.xhtml";
 	}

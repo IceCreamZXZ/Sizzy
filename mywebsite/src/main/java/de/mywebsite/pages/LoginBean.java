@@ -33,6 +33,7 @@ public class LoginBean {
 		if (pw==true) {
 			getUserModel().setRegisteredEvents(EventService.eventsForUser(getUserModel().getUsername()));
 			getUserModel().setOwnEvents(EventService.getOwnEvents(getUserModel().getUsername()));
+			getUserModel().setPermission(LoginService.getAccount(getUserModel().getUsername()).getPermission());
 			return "welcome.xhtml";
 		}
 		else {
