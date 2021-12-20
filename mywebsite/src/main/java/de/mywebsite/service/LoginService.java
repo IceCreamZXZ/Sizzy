@@ -1,5 +1,8 @@
 package de.mywebsite.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -71,14 +74,13 @@ public class LoginService {
 	public static void deleteAccount(String username) {
 		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
 		EntityTransaction et = null;
-		LoginEntity user = getAccount(username);
+		LoginEntity user = null;
 		
 		try {
 			et = em.getTransaction();
 			et.begin();
-			user = em.find(LoginEntity.class, user.getId());
+			user = em.find(LoginEntity.class, getAccount(username).getId());
 			em.remove(user);
-			em.persist(user);
 			et.commit();
 		}
 		catch (Exception e) {
@@ -129,6 +131,63 @@ public class LoginService {
 		finally {
 			em.close();
 		}
+		
+	}
+	
+	public static void updatePermission(String username, String permission) {
+		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+		EntityTransaction et = null;
+		LoginEntity user = getAccount(username);
+		try {
+			et = em.getTransaction();
+			et.begin();
+			user.setPermission(permission);
+			em.merge(user);
+			et.commit();
+		}
+		catch(Exception e) {
+			if(et!=null) {
+				et.rollback();
+			}
+			e.printStackTrace();
+		}
+		finally {
+			em.close();
+		}
+		
+	}
+	
+	public static List<UserModel> getAllUsers() {
+		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+		String query = "SELECT u FROM LoginEntity u";
+		
+		TypedQuery<LoginEntity> tq = em.createQuery(query, LoginEntity.class);
+		List<LoginEntity> result = new ArrayList<LoginEntity>();
+		List<UserModel> users = new ArrayList<UserModel>();
+		try {
+			result = tq.getResultList();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			em.close();
+		}
+		
+		for (int i = 0; i < result.size(); i++) {
+			LoginEntity le = result.get(i);
+			UserModel ue = new UserModel();
+			
+			ue.setOwnEvents(EventService.getOwnEvents(le.getUsername()));
+			ue.setPassword(le.getPassword());
+			ue.setPermission(le.getPermission());
+			ue.setRegisteredEvents(EventService.eventsForUser(le.getUsername()));
+			ue.setUsername(le.getUsername());
+			
+			users.add(ue);
+		}
+		
+		return users;
 		
 	}
 	

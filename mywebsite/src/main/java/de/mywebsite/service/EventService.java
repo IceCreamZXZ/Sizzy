@@ -107,6 +107,17 @@ public class EventService {
 			em.close();
 		}
 		
+		EventModel event = new EventModel();
+		
+		event.setDate(result.getDate());
+		event.setEventID(result.getEventId());
+		event.setEventName(result.getEventName());
+		event.setGame(result.getGame());
+		event.setHost(result.getHost());
+		event.setLocation(result.getLocation());
+		event.setMaxPlayer(result.getMaxPlayer());
+		event.setRegisteredPlayers(result.getRegisteretPlayers());
+		
 		return result;
 		
 	}
@@ -275,6 +286,29 @@ public class EventService {
 		}
 		
 		return list;
+		
+	}
+	
+	public static void deleteEvent(int eventID) {
+		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+		EntityTransaction et = null;
+		EventEntity event = getSingleEvent(eventID);
+		try {
+			et = em.getTransaction();
+			et.begin();
+			event = em.find(EventEntity.class, event.getEventId());
+			em.remove(event);
+			et.commit();
+		}
+		catch(Exception e) {
+			if(et!=null) {
+				et.rollback();
+			}
+			e.printStackTrace();
+		}
+		finally {
+			em.close();
+		}
 		
 	}
 		
