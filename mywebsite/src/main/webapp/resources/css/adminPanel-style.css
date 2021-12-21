@@ -163,3 +163,90 @@ body .ui-menu {
 .ten-percent {
 	width: 10%
 }
+
+.select {
+	padding: 8px 12px;
+	color: #fff;
+	background: none;
+	border: 1px solid #fb2525;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.select option {
+	background: black;
+}
+
+.submitButton {
+	border: none;
+	outline: none;
+	height: 35px;
+	width: 100px;
+	background: #fb2525;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 5px;
+}
+
+.submitButton:hover {
+	cursor: pointer;
+	background: ffc107;
+	color: #000;
+}
+
+.radio {
+	margin-bottom: 30px;
+}
+
+.input {
+	background: #000;
+	border: 1px solid #fb2525;
+	height: 25px;
+	color: #fff;
+	border-radius: 5px;
+}
+
+.input:focus {
+	background: #000;
+	border: 1px solid #fb2525;
+	height: 25px;
+	color: #fff;
+	border-radius: 5px;
+	outline: none;
+}
+
+.inputReason {
+	background: #000;
+	border: 1px solid #fb2525;
+	height: 80px;
+	width: 500px;
+	color: #fff;
+	border-radius: 5px;
+	resize: none;
+}
+
+.inputReason:focus {
+	background: #000;
+	border: 1px solid #fb2525;
+	height: 80px;
+	width: 500px;
+	color: #fff;
+	border-radius: 5px;
+	resize: none;
+	outline: none;
+}
+
+.list {
+	list-style: none;
+	margin-bottom: 50px;
+}
+
+.list li {
+	padding-top: 50px
+}
+
+.item {
+	text-decoration: none;
+	color: #fff;
+	border-bottom: 1px solid  #fb2525;
+}

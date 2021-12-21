@@ -22,9 +22,14 @@ public class LoginBean {
 		
 		boolean pw = false;
 		
+		if(LoginService.isBanned(getUserModel().getUsername())==false) {
+			return "banned.xhtml";
+		}
+		
 		try {
 			
 		pw = LoginService.isPasswordRight(getUserModel().getUsername(), getUserModel().getPassword());
+		
 		}
 		catch (NullPointerException e) {
 			return "index.xhtml";

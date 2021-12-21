@@ -4,6 +4,7 @@
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 	<title>Admin Panel</title>
+	<link rel="stylesheet" type="text/css" href="resources/css/adminPanel-style.css"/>
 </h:head>
 <h:body>
 	<ui:composition template="adminPanel.xhtml">
@@ -13,17 +14,17 @@
 				<h:inputText id="username" value="#{adminPanelBean.bannedUser}"
 					lable="Username" required="true"
 					requiredMessage="Das ist kein gültiger Nutzername"
-					a:placeholder="Nutzername" />
+					a:placeholder="Nutzername" class="input"/>
 				<br />
 				<br />
-				<h:inputText id="reason" value="#{adminPanelBean.reason}"
+				<h:inputTextarea id="reason" value="#{adminPanelBean.reason}"
 					lable="Reason" required="true"
 					requiredMessage="Du musst einen Grund angeben"
-					a:placeholder="Grund für Sperrung" />
+					a:placeholder="Grund für Sperrung" class="inputReason"/>
 				<br />
 				<br />
 				<h:commandButton value="Bestätigen"
-					action="#{adminPanelBean.banUser()}" />
+					action="#{adminPanelBean.banUser()}" class="submitButton"/>
 			</h:form>
 		</ui:define>
 	</ui:composition>

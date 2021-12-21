@@ -10,14 +10,15 @@
 		<ui:composition template="adminPanel.xhtml">
 			<ui:define name="firstContent">
 				<h:form>
-					<h:selectOneMenu value="#{adminPanelBean.selectedUser}">
+					<h1>Rollen Verwalten</h1>
+					<h:selectOneMenu value="#{adminPanelBean.selectedUser}" class="select">
 						<f:selectItems value="#{adminPanelBean.userNames}"/>
 					</h:selectOneMenu>
-					<h:selectOneRadio value="#{adminPanelBean.selectedPermission}">
+					<h:selectOneRadio value="#{adminPanelBean.selectedPermission}" class="radio">
 						<f:selectItem itemValue="admin" itemLabel="Admin"/> <br/><br/>
 						<f:selectItem itemValue="user" itemLabel="Benutzer"/> <br/><br/>
 					</h:selectOneRadio>
-					<h:commandButton value="Bestätigen" action="#{adminPanelBean.changePermission}"/>
+					<h:commandButton value="Bestätigen" action="#{adminPanelBean.changePermission}" class="submitButton"/>
 				</h:form>
 			</ui:define>
 		</ui:composition>

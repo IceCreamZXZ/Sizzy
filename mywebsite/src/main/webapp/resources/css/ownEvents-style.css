@@ -9,13 +9,13 @@ body {
 	color: #fff;
 	background-image: url("../images/stars-background.jpg");
 	background-repeat: no-repeat;
-	background-attachment: scroll;
+	background-attachment: fixed;
+	background-size: cover;
 }
 
 .container {
 	width: 100%;
 	height: 100vh;
-	background-color: #353633;
 }
 
 .navbar {
@@ -133,7 +133,6 @@ body .ui-menu {
 	justify-content: center;
 	position: relative;
 	top: 12%;
-	background-color: #353633;
 }
 
 .events {

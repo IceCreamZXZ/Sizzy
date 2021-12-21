@@ -8,7 +8,8 @@ body {
 	color: #fff;
 	background-image: url("../images/stars-background.jpg");
 	background-repeat: no-repeat;
-	background-attachment: scroll;
+	background-attachment: fixed;
+	background-size: cover;
 }
 
 .container {

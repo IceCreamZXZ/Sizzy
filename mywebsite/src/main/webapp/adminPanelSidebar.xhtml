@@ -2,13 +2,14 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html">
 <h:head>
 	<title>Admin Panel</title>
+	<link rel="stylesheet" type="text/css" href="resources/css/adminPanel-style.css"/>
 </h:head>
 <h:body>
 	<h:form>
-		<ul style="list-style: none">
-			<li><h:commandLink value="Nutzer Bannen" action="banUser.xhtml" /></li>
-			<li><h:commandLink value="Event Entfernen" action="deleteEvent.xhtml"/></li>
-			<li><h:commandLink value="Rollen Verwaltung" action="managePermissions.xhtml"/></li>
+		<ul class="list">
+			<li><h:commandLink value="Nutzer Sperren" action="banUser.xhtml" class="item"/></li>
+			<li><h:commandLink value="Event Entfernen" action="deleteEvent.xhtml" class="item"/></li>
+			<li><h:commandLink value="Rollen Verwaltung" action="managePermissions.xhtml" class="item"/></li>
 		</ul>
 	</h:form>
 </h:body>

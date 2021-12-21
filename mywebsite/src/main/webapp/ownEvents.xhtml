@@ -24,6 +24,9 @@
 							<p:menuButton value="#{ownEventsBean.user.username}">
 								<p:menuitem value="Logout" action="#{welcomeBean.logout}"
 									update="messages" icon="pi pi-sign-out" />
+								<p:menuitem value="Admin Panel"
+									action="#{welcomeBean.adminPanel}" update="messages"
+									icon="pi pi-key" />
 							</p:menuButton>
 						</h:form>
 					</div>
@@ -87,13 +90,12 @@
 								columnClasses="label,value">
 
 								<ul>
-									<ui:repeat var="player" value="#{ownEventsBean.players(ownEventsBean.selectedModel)}">
-										<li>
-											<h:outputText value="#{player.username}"/>
-										</li>
+									<ui:repeat var="player"
+										value="#{ownEventsBean.players(ownEventsBean.selectedModel)}">
+										<li><h:outputText value="#{player.username}" /></li>
 									</ui:repeat>
 								</ul>
-								
+
 							</p:panelGrid>
 						</p:outputPanel>
 					</p:dialog>

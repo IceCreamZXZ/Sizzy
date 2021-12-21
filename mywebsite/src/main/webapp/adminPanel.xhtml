@@ -5,8 +5,7 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Admin Panel</title>
-	<link rel="stylesheet" type="text/css"
-		href="resources/css/adminPanel-style.css" />
+	<link rel="stylesheet" type="text/css" href="resources/css/adminPanel-style.css"/>
 </h:head>
 <h:body>
 	<div class="banner">
@@ -35,12 +34,13 @@
 		</div>
 		<div class="mainbox">
 			<div class="options">
-				<h:panelGrid columns="2" style="width: 100%" columClasses="twenty-percent, eighty-percent">
-					<p:outputPanel>
+				<h:panelGrid columns="2" style="width: 100%"
+					columClasses="twenty-percent, eighty-percent">
+					<p:outputPanel class="list-panel">
 						<ui:include src="adminPanelSidebar.xhtml"></ui:include>
 					</p:outputPanel>
 					<p:outputPanel>
-						<ui:insert name="firstContent"/>
+						<ui:insert name="firstContent" />
 					</p:outputPanel>
 				</h:panelGrid>
 			</div>

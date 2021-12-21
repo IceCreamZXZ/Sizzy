@@ -191,4 +191,33 @@ public class LoginService {
 		
 	}
 	
+	public static boolean isBanned(String username) {
+		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+		String query = "SELECT u FROM BannedEntity u";
+		
+		TypedQuery<BannedEntity> tq = em.createQuery(query, BannedEntity.class);
+		List<BannedEntity> result = new ArrayList<BannedEntity>();
+		try {
+			result = tq.getResultList();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			em.close();
+		}
+		
+		for (int i = 0; i < result.size(); i++) {
+			BannedEntity be = result.get(i);
+			
+			if(be.getUsername().equals(username)) {
+				return false;
+			}
+			
+		}
+		
+		return true;
+		
+	}
+	
 }

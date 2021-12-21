@@ -5,17 +5,18 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 	<h:head>
 		<title>Admin panel</title>
+		<link rel="stylesheet" type="text/css" href="resources/css/adminPanel-style.css"/>
 	</h:head>
 	<h:body>
 		<ui:composition template="adminPanel.xhtml">
 			<ui:define name="firstContent">
 				<h:form>
 					<h1>Event Entfernen</h1>
-					<h:selectOneMenu id="event" value="#{adminPanelBean.selectedEvent}">
+					<h:selectOneMenu id="event" value="#{adminPanelBean.selectedEvent}" class="select">
 						<f:selectItems value="#{adminPanelBean.eventNames}"/>
 					</h:selectOneMenu>
 					<br/><br/>
-					<h:commandButton value="Bestätigen" action="#{adminPanelBean.banEvent}"/>
+					<h:commandButton value="Bestätigen" action="#{adminPanelBean.banEvent}" class="submitButton"/>
 				</h:form>
 			</ui:define>
 		</ui:composition>
