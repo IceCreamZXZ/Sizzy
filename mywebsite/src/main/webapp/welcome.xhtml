@@ -15,15 +15,34 @@
 			<ul>
 				<li><a href="signUpForEvent.xhtml">Events</a></li>
 				<li><a href="createEvent.xhtml">Event Erstellen</a></li>
-				<li><h:outputLabel value="#{welcomeBean.user.username}"
-						class="username" /></li>
+				<li>
+					<div>
+						<h:form>
+							<p:growl id="messages" showDetail="true" />
+
+							<p:menuButton value="#{welcomeBean.user.username}">
+								<p:menuitem value="Eigene Events"
+									action="#{welcomeBean.ownEvents}" update="messages"
+									icon="pi pi-list" />
+								<p:menuitem value="Logout" action="#{welcomeBean.logout}"
+									update="messages" icon="pi pi-sign-out" />
+								<p:menuitem rendered="#{welcomeBean.isAdmin()}"
+									value="Admin Panel" action="#{welcomeBean.adminPanel}"
+									update="messages" icon="pi pi-key"/>
+							</p:menuButton>
+						</h:form>
+					</div>
+				</li>
 			</ul>
 		</div>
 		<div class="mainbox">
 			<div class="events">
+				<p:outputLabel rendered="#{welcomeBean.isSignedUp()}"
+					style="font-size: 40px; color: #fb2525; margin-left: 33.33%;">Das wartet auf dich</p:outputLabel>
 				<h:form>
 					<p:dataView var="event" value="#{welcomeBean.list}"
-						gridIcon="pi pi-th-large" listIcon="pi pi-bars" emptyMessage="Du bist bei keinem Event dabei">
+						gridIcon="pi pi-th-large" listIcon="pi pi-bars"
+						emptyMessage="Du bist bei keinem Event dabei">
 						<p:dataViewListItem>
 							<h:panelGrid columns="3" style="width:100%"
 								columnClasses="five-percent, eightyfive-percent, ten-percent">

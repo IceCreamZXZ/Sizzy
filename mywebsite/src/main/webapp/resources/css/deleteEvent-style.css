@@ -1,0 +1,8 @@
+.select {
+	padding: 8px 12px;
+	color: #fff;
+	background: none;
+	border: 1px solid #fb2525;
+	border-radius: 5px;
+	cursor: pointer;
+}

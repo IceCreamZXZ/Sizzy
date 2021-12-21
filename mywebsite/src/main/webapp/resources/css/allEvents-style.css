@@ -5,14 +5,10 @@
 	color: white;
 }
 
-body {
-	background-color: #353633;
-	background-size: cover;
-}
-
 .banner {
 	width: 100%;
 	height: 100vh;
+	background-color: #353633;
 }
 
 .navbar {
@@ -32,10 +28,6 @@ body {
 	cursor: pointer;
 }
 
-.navbar ul {
-	margin-right: 60px;
-}
-
 .navbar ul li {
 	list-style: none;
 	display: inline-block;
@@ -48,58 +40,6 @@ body {
 	color: #fff;
 	text-transform: uppercase;
 }
-
-body .ui-button {
-	background: none;
-	border: none;
-	margin: 0;
-	text-transform: uppercase;
-}
-
-.ui-state-hover {
-	background: none !important;
-}
-
-body .ui-button.ui-button-text-icon-left .ui-button-text {
-	padding: 0;
-}
-
-body .ui-button .ui-icon-triangle-1-s:before {
-	content: "";
-}
-
-body .ui-button.ui-state-focus {
-	outline: 0 none;
-	outline-offset: none;
-	box-shadow: none;
-}
-
-body .ui-button.ui-state-active, body .ui-button.ui-state-down {
-	background: none;
-	border-color: none;
-	color: #ffffff;
-}
-
-body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-icon
-	{
-	margin-right: 0.5rem;
-	vertical-align: middle;
-	float: none;
-	color: #fff;
-}
-
-body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-text
-	{
-	float: none;
-	vertical-align: middle;
-	color: #fff;
-}
-
-body .ui-menu {
-	background-color: #000;
-	margin-top: 10px !important;
-}
-
 
 .navbar ul li::after {
 	content: '';
@@ -116,14 +56,47 @@ body .ui-menu {
 	width: 100%;
 }
 
-.username {
+.loginbutton {
+	text-decoration: none;
 	color: #fff;
 	text-transform: uppercase;
-	text-decoration: nonoe;
+	display: block;
+    width: 115px;
+    height: 40px;
+    background: #fb2525;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
 }
 
-.username:hover {
+.loginbutton:hover {
 	cursor: pointer;
+	background: #fb2525;
+	color: #000;
+}
+
+.regbutton {
+	text-decoration: none;
+	color: #fff;
+	text-transform: uppercase;
+	border:2px solid #fb2525;
+    display:block;          
+    height:40px;
+    width:145px;
+	padding: 8px;
+	text-align: center;
+	border-radius: 20px;
+	color: white;
+	font-weight: bold;
+	line-height: 25px;
+}
+
+.regbutton:hover {
+	cursor:pointer;
+	color: #ffc107;
 }
 
 .ui-dataview-list .ui-dataview-row {
@@ -193,28 +166,4 @@ body .ui-dataview.ui-dataview-list .ui-dataview-row {
 .detail {
 	width: 85%;
 	padding-left: 25px;
-}
-
-.button {
-	background-image: url(../images/blaues-plus.png);
-	background-size: cover;
-	background-position: center;
-	width: 35px;
-	height: 30px;
-	background-color: #353633;
-	border-bottom: 0px;
-	border-right: 0px;
-	border-top: 0px;
-	border-left: 0px;
-	
-}
-
-.button:hover {
-	cursor: pointer;
-}
-
-.haekchen {
-	width: 35px;
-	height: 30px;
-	background-color: #353633;
 }

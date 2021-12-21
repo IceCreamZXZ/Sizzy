@@ -6,12 +6,15 @@
 
 body {
 	color: #fff;
+	background-image: url("../images/stars-background.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
 }
 
 .container {
 	width: 100%;
 	height: 100vh;
-	background-color: #353633;
 }
 
 .navbar {
@@ -31,6 +34,10 @@ body {
 	cursor: pointer;
 }
 
+.navbar ul {
+	margin-right: 60px;
+}
+
 .navbar ul li {
 	list-style: none;
 	display: inline-block;
@@ -42,6 +49,57 @@ body {
 	text-decoration: none;
 	color: #fff;
 	text-transform: uppercase;
+}
+
+body .ui-button {
+	background: none;
+	border: none;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.ui-state-hover {
+	background: none !important;
+}
+
+body .ui-button.ui-button-text-icon-left .ui-button-text {
+	padding: 0;
+}
+
+body .ui-button .ui-icon-triangle-1-s:before {
+	content: "";
+}
+
+body .ui-button.ui-state-focus {
+	outline: 0 none;
+	outline-offset: none;
+	box-shadow: none;
+}
+
+body .ui-button.ui-state-active, body .ui-button.ui-state-down {
+	background: none;
+	border-color: none;
+	color: #ffffff;
+}
+
+body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-icon
+	{
+	margin-right: 0.5rem;
+	vertical-align: middle;
+	float: none;
+	color: #fff;
+}
+
+body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-text
+	{
+	float: none;
+	vertical-align: middle;
+	color: #fff;
+}
+
+body .ui-menu {
+	background-color: #000;
+	margin-top: 10px !important;
 }
 
 .navbar ul li::after {
@@ -74,7 +132,6 @@ body {
 	justify-content: center;
 	position: relative;
 	top: 12%;
-	background-color: #353633;
 }
 
 .events {
@@ -93,7 +150,6 @@ body {
 .sixty-percent {
 	width: 60%;
 	text-align: center;
-	
 }
 
 .five-percent {
@@ -118,10 +174,10 @@ body {
 body .ui-dataview .ui-dataview-header {
 	background: none;
 	border: 1px solid #fb2525;
-    border-top-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
 	border-width: 1px 0 1px 0;
 }
 
@@ -147,9 +203,9 @@ body .ui-dataview.ui-dataview-list .ui-dataview-row {
 	background-image: none;
 	border: solid #fb2525;
 	border-top-width: medium;
-    border-right-width: medium;
-    border-bottom-width: medium;
-    border-left-width: medium;
+	border-right-width: medium;
+	border-bottom-width: medium;
+	border-left-width: medium;
 	border-width: 0 0 1px 0;
 	opacity: 100%;
 	color: white;
@@ -160,10 +216,10 @@ body .ui-dataview.ui-dataview-list .ui-dataview-row {
 }
 
 .ui-panelgrid {
-    background: transparent;
+	background: transparent;
 }
 
 .ui-dataview .ui-dataview-header {
-    border-bottom: 0 none;
-    display: none;
+	border-bottom: 0 none;
+	display: none;
 }

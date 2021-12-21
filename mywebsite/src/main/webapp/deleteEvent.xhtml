@@ -1,0 +1,24 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<h:head>
+		<title>Admin panel</title>
+		<link rel="stylesheet" type="text/css" href="resources/css/adminPanel-style.css"/>
+	</h:head>
+	<h:body>
+		<ui:composition template="adminPanel.xhtml">
+			<ui:define name="firstContent">
+				<h:form>
+					<h1>Event Entfernen</h1>
+					<h:selectOneMenu id="event" value="#{adminPanelBean.selectedEvent}" class="select">
+						<f:selectItems value="#{adminPanelBean.eventNames}"/>
+					</h:selectOneMenu>
+					<br/><br/>
+					<h:commandButton value="Bestätigen" action="#{adminPanelBean.banEvent}" class="submitButton"/>
+				</h:form>
+			</ui:define>
+		</ui:composition>
+	</h:body>
+</html>

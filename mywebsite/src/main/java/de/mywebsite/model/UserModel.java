@@ -11,6 +11,7 @@ import javax.faces.bean.SessionScoped;
 public class UserModel {
 	private String username;
 	private String password;
+	private String permission;
 	private List<EventModel> registeredEvents = new ArrayList<EventModel>();
 	private List<EventModel> ownEvents = new ArrayList<EventModel>();
 	
@@ -49,6 +50,14 @@ public class UserModel {
 	}
 	public void setOwnEvents(List<EventModel> ownEvents) {
 		this.ownEvents = ownEvents;
+	}
+
+	public String getPermission() {
+		return permission;
+	}
+
+	public void setPermission(String permission) {
+		this.permission = permission;
 	}
 	
 }
