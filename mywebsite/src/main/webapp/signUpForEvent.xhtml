@@ -26,9 +26,9 @@
 									icon="pi pi-list" />
 								<p:menuitem value="Logout" action="#{welcomeBean.logout}"
 									update="messages" icon="pi pi-sign-out" />
-								<p:menuitem value="Admin Panel"
-									action="{welcomeBean.adminPanel}" update="messages"
-									icon="pi pi-key" />
+								<p:menuitem rendered="#{welcomeBean.isAdmin()}"
+									value="Admin Panel" action="{welcomeBean.adminPanel}"
+									update="messages" icon="pi pi-key" />
 							</p:menuButton>
 						</h:form>
 					</div>
