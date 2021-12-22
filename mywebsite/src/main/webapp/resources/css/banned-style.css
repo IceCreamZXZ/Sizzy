@@ -36,3 +36,9 @@ body {
 	transform: translate(-50%,-50%);
 	color: red;
 }
+
+.message {
+	margin-left: 46%;
+	transform: translate(-50%,-50%);
+	font-size: 20px;
+}

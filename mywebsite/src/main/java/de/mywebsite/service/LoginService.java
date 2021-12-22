@@ -220,4 +220,27 @@ public class LoginService {
 		
 	}
 	
+	public static String getBannedMessage(String username) {
+		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+		String query = "SELECT u FROM BannedEntity u WHERE u.username = :username";
+		
+		TypedQuery<BannedEntity> tq = em.createQuery(query, BannedEntity.class);
+		tq.setParameter("username", username);
+		BannedEntity result = new BannedEntity();
+		try {
+			result = tq.getSingleResult();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			em.close();
+		}
+		
+		String reason = result.getReason();
+		
+		return reason;
+		
+	}
+	
 }
